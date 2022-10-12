@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "lHBJi7fxkNB3AIskUwFXzkitl7WyGbwWHw5+iE4EnIw=",
+  "Source": "ProjectAPI",
+  "BasePath": "_content/ProjectAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProjectAPI\\wwwroot",
+      "Source": "ProjectAPI",
+      "ContentRoot": "C:\\Users\\KMult\\source\\repos\\ZZZdreamm\\ProjectAPI\\ProjectAPI\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\KMult\\source\\repos\\ZZZdreamm\\ProjectAPI\\ProjectAPI\\ProjectAPI\\wwwroot\\posts\\587c49dd-0ee1-4bc5-b2f8-61ab3887b027.jpg",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KMult\\source\\repos\\ZZZdreamm\\ProjectAPI\\ProjectAPI\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "posts/587c49dd-0ee1-4bc5-b2f8-61ab3887b027.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\posts\\587c49dd-0ee1-4bc5-b2f8-61ab3887b027.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\KMult\\source\\repos\\ZZZdreamm\\ProjectAPI\\ProjectAPI\\ProjectAPI\\wwwroot\\posts\\9e7d5847-5640-47ba-9a2c-f6e3d8415ae6.jpg",
+      "SourceId": "ProjectAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KMult\\source\\repos\\ZZZdreamm\\ProjectAPI\\ProjectAPI\\ProjectAPI\\wwwroot\\",
+      "BasePath": "_content/ProjectAPI",
+      "RelativePath": "posts/9e7d5847-5640-47ba-9a2c-f6e3d8415ae6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\posts\\9e7d5847-5640-47ba-9a2c-f6e3d8415ae6.jpg"
+    }
+  ]
+}
