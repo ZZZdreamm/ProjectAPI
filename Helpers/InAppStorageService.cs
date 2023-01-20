@@ -52,5 +52,50 @@
             var routeForDB = Path.Combine(url, containerName, fileName).Replace("\\", "/");
             return routeForDB;
         }
+        public async Task<string> SaveManyFiles(string containerName, List<IFormFile> files)
+        {
+            List<string> routesForDB = new List<string>();
+            foreach(var file in files)
+            {
+                var extension = Path.GetExtension(file.FileName);
+                var fileName = $"{Guid.NewGuid()}{extension}";
+                string folder = Path.Combine(env.WebRootPath, containerName);
+
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+                string route = Path.Combine(folder, fileName);
+                using (var ms = new MemoryStream())
+                {
+                    await file.CopyToAsync(ms);
+                    var content = ms.ToArray();
+                    await File.WriteAllBytesAsync(route, content);
+                }
+                var url = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
+                var routeForDB = Path.Combine(url, containerName, fileName).Replace("\\", "/");
+                routesForDB.Add(routeForDB);
+            }
+            var routesString = string.Join("Ω", routesForDB);
+            return routesString;
+            //var extension = Path.GetExtension(file.FileName);
+            //var fileName = $"{Guid.NewGuid()}{extension}";
+            //string folder = Path.Combine(env.WebRootPath, containerName);
+
+            //if (!Directory.Exists(folder))
+            //{
+            //    Directory.CreateDirectory(folder);
+            //}
+            //string route = Path.Combine(folder, fileName);
+            //using (var ms = new MemoryStream())
+            //{
+            //    await file.CopyToAsync(ms);
+            //    var content = ms.ToArray();
+            //    await File.WriteAllBytesAsync(route, content);
+            //}
+            //var url = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
+            //var routeForDB = Path.Combine(url, containerName, fileName).Replace("\\", "/");
+            //return routeForDB;
+        }
     }
 }

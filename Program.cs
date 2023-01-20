@@ -44,10 +44,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 
-var frontendURL = configuration.GetValue<string>("frontend_url");
+
 builder.Services.AddCors(options =>
 {
-   
+    var frontendURL = configuration.GetValue<string>("frontend_url");
     options.AddDefaultPolicy(builder =>
     {
         builder.AllowAnyOrigin();
