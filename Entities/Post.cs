@@ -7,7 +7,6 @@
         public string TextContent { get; set; }
 
         public string? MediaFile { get; set; }
-        public string? AutorProfileImage { get; set; }
         public int AmountOfComments { get; set; } = 0;
         public int AmountOfLikes { get; set; } = 0;
     }

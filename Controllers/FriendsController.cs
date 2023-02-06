@@ -79,6 +79,7 @@ namespace ProjectAPI.Controllers
             var friend = await context.ProfilesFriends.FirstOrDefaultAsync(x => x.FriendId == friendId && x.ProfileId == profileId);
             var friend2 = await context.ProfilesFriends.FirstOrDefaultAsync(x => x.FriendId == profileId && x.ProfileId == friendId);
             context.Remove(friend);
+            context.Remove(friend2);
             await context.SaveChangesAsync();
             return NoContent();
         }

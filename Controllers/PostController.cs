@@ -28,13 +28,14 @@ namespace ProjectAPI.Controllers
         [HttpGet("all")]
         public async Task<List<PostDTO>> GetAllPosts()
         {
-            var posts = await context.Posts.ToListAsync();
+            var postsList = await context.Posts.ToListAsync();
+            var posts = mapper.Map<List<PostDTO>>(postsList);
             foreach (var post in posts)
             {
                 var autor = context.Profiles.FirstOrDefault(x => x.Email == post.AutorName);
                 post.AutorProfileImage = autor.ProfileImage;
             }
-            return mapper.Map<List<PostDTO>>(posts);
+            return posts;
         }
 
         [HttpGet("userPosts/{autorName}")]
@@ -42,13 +43,14 @@ namespace ProjectAPI.Controllers
         {
             var queryable = context.Posts.Where(x => x.AutorName == autorName).AsQueryable();
             await HttpContext.InsertParametersPaginationInHeader(queryable);
-            var posts = await queryable.OrderBy(x => x.Id).Paginate(paginationDTO).ToListAsync();
+            var postsList = await queryable.OrderBy(x => x.Id).Paginate(paginationDTO).ToListAsync();
+            var posts = mapper.Map<List<PostDTO>>(postsList);
             foreach (var post in posts)
             {
                 var autor = context.Profiles.FirstOrDefault(x => x.Email == post.AutorName);
                 post.AutorProfileImage = autor.ProfileImage;
             }
-            return mapper.Map<List<PostDTO>>(posts);
+            return posts;
         }
 
         [HttpPost("post")]
@@ -121,7 +123,18 @@ namespace ProjectAPI.Controllers
         {
             var posts = context.Posts.Take(amount*10).ToList();
             var postsDTOs = mapper.Map<List<PostDTO>>(posts);
-            return postsDTOs;
+            var postsWithImages = GetAutorsImages(postsDTOs);
+            return postsWithImages;
+        }
+
+        public List<PostDTO> GetAutorsImages(List<PostDTO> posts)
+        {
+            foreach (var post in posts)
+            {
+                var autor = context.Profiles.FirstOrDefault(x => x.Email == post.AutorName);
+                post.AutorProfileImage = autor.ProfileImage;
+            }
+            return posts;
         }
     }
 }

@@ -57,7 +57,7 @@ namespace ProjectAPI.Controllers
 
             if (messageCreationDTO.TextContent == null && messageCreationDTO.ImageContent == null)
             {
-                message.ImageContent = "/like.png";
+                message.ImageContent = "https://localhost:7064/public/like.png";
             }
             context.Add(message);
             context.SaveChangesAsync();
@@ -70,7 +70,6 @@ namespace ProjectAPI.Controllers
         {
             var messages = context.Messages.Where(x => (x.SenderId == userId && x.ReceiverId == friendId)
             || x.SenderId == friendId && x.ReceiverId == userId).ToList().OrderByDescending(x => x.Id).Take(numberOfMessagesStacks*15).OrderBy(x => x.Id);
-
             var mes = mapper.Map<List<MessageDTO>>(messages);
 
             return mes;

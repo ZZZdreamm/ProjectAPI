@@ -6,6 +6,5 @@
         public string TextContent { get; set; }
         public IFormFile? MediaFile { get; set; }
 
-        public string? AutorProfileImage { get; set; }
     }
 }
