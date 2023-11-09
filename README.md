@@ -10,6 +10,5 @@ It is no longer used because I didn't have money to pay for Azure Database. but 
   <li>C#</li>
   <li>ASP.NET MVC</li>
   <li>SQL Server</li>
-  <li>SQL database</li>
   <li>Git</li>
 </ul>
