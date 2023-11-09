@@ -9,7 +9,7 @@ It is no longer used because I didn't have money to pay for Azure Database. but 
 <ul>
   <li>C#</li>
   <li>ASP.NET MVC</li>
-  <li>SQL Server database</li>
-  <li></li>
+  <li>SQL Server</li>
+  <li>SQL database</li>
   <li>Git</li>
 </ul>
